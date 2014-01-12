@@ -1,6 +1,6 @@
 <table class="tabela-contribuinte">
   <% @contribuintes.each do |contribuinte| %>
-      <tr>
+      <tr class="tr-contribuinte" url='/gastos/<%= contribuinte.id %>'>
         <td><%= contribuinte.nome %></td>
         <td> R$ 1000,00 </td>
       </tr>
