@@ -1,0 +1,12 @@
+<table class="tabela-contribuinte">
+  <% @contribuintes.each do |contribuinte| %>
+      <tr>
+        <td><%= contribuinte.nome %></td>
+        <td> R$ 1000,00 </td>
+      </tr>
+  <% end %>
+  <tr>
+    <td> <b>Total</b> </td>
+    <td> <b>R$ 2000,00</b> </td>
+  </tr>
+</table>

@@ -1,0 +1,20 @@
+.tabela-contribuinte {
+
+    margin: auto;
+    margin-top: 100px;
+    width: 75%;
+    border-top: 1px solid #eee;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.tabela-contribuinte td {
+
+    font-size: 20px;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+
