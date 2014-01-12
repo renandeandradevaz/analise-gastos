@@ -28,11 +28,7 @@ class GastosController < ApplicationController
 
   def update
 
-    Gasto.find(params[:id]).destroy
-
-    @gasto = Gasto.new(gasto_params)
-    @gasto.contribuinte = Contribuinte.find(session[:contribuinte_id])
-    @gasto.save
+    @gasto.update(gasto_params)
 
     redirect_to "/gastos/#{@gasto.contribuinte.id}"
   end
