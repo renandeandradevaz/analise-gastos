@@ -27,4 +27,6 @@ ActiveRecord::Schema.define(version: 20140112151259) do
     t.datetime "updated_at"
   end
 
+  add_index "gastos", ["contribuinte_id"], name: "index_gastos_on_contribuinte_id", using: :btree
+
 end
