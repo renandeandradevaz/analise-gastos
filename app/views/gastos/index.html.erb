@@ -1,0 +1,27 @@
+<h1>Gastos de <%= @contribuinte.nome %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th>Valor</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gastos.each do |gasto| %>
+      <tr>
+        <td><%= gasto.descricao %></td>
+        <td><%= gasto.valor %></td>
+        <td><%= link_to 'Edit', edit_gasto_path(gasto) %></td>
+        <td><%= link_to 'Destroy', gasto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gasto', new_gasto_path %>

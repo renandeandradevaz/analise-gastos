@@ -11,12 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140112141437) do
+ActiveRecord::Schema.define(version: 20140112151259) do
 
   create_table "contribuintes", force: true do |t|
     t.string   "nome"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "gastos", force: true do |t|
+    t.string   "descricao"
+    t.decimal  "valor",           precision: 6, scale: 2
+    t.integer  "contribuinte_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "gastos", ["contribuinte_id"], name: "index_gastos_on_contribuinte_id", using: :btree
 
 end

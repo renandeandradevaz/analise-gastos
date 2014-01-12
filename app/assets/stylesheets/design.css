@@ -1,15 +1,15 @@
-.tabela-contribuinte {
+.tabela {
 
     margin: auto;
     margin-top: 100px;
-    width: 75%;
+    width: 90%;
     border-top: 1px solid #eee;
     border-left: 1px solid #eee;
     border-right: 1px solid #eee;
     border-radius: 5px;
 }
 
-.tabela-contribuinte td {
+.tabela td, th {
 
     font-size: 20px;
     padding: 10px;
@@ -22,4 +22,28 @@
     cursor: pointer;
     background-color: rgb(239, 239, 247);
 }
+
+.adicionar-gasto {
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #5B4EEE;
+    color: white;
+    font-size: 20px;
+    float: right;
+    margin-right: 10px;
+}
+
+.field input {
+    width: 400px;
+    height: 20px;
+    font-size: 16px;
+    padding: 5px;
+}
+
+#gasto_valor{
+    width: 150px;
+}
+
 

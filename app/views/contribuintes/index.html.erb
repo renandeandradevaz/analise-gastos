@@ -1,12 +1,12 @@
-<table class="tabela-contribuinte">
+<table class="tabela">
   <% @contribuintes.each do |contribuinte| %>
       <tr class="tr-contribuinte" url='/gastos/<%= contribuinte.id %>'>
         <td><%= contribuinte.nome %></td>
-        <td> R$ 1000,00 </td>
+        <td>R<%= number_to_currency(contribuinte.total) %></td>
       </tr>
   <% end %>
   <tr>
     <td> <b>Total</b> </td>
-    <td> <b>R$ 2000,00</b> </td>
+    <td> <b> R<%=number_to_currency(Gasto.sum(:valor)) %> </b> </td>
   </tr>
 </table>
