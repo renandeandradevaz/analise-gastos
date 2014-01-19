@@ -1,28 +1,21 @@
 class ContribuintesController < ApplicationController
   before_action :set_contribuinte, only: [:show, :edit, :update, :destroy]
 
-  # GET /contribuintes
-  # GET /contribuintes.json
   def index
     @contribuintes = Contribuinte.all
   end
 
-  # GET /contribuintes/1
-  # GET /contribuintes/1.json
   def show
+    session[:contribuinte_id] = @contribuinte.id
   end
 
-  # GET /contribuintes/new
   def new
     @contribuinte = Contribuinte.new
   end
 
-  # GET /contribuintes/1/edit
   def edit
   end
 
-  # POST /contribuintes
-  # POST /contribuintes.json
   def create
     @contribuinte = Contribuinte.new(contribuinte_params)
 
@@ -37,8 +30,6 @@ class ContribuintesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /contribuintes/1
-  # PATCH/PUT /contribuintes/1.json
   def update
     respond_to do |format|
       if @contribuinte.update(contribuinte_params)
@@ -51,8 +42,6 @@ class ContribuintesController < ApplicationController
     end
   end
 
-  # DELETE /contribuintes/1
-  # DELETE /contribuintes/1.json
   def destroy
     @contribuinte.destroy
     respond_to do |format|
@@ -62,13 +51,11 @@ class ContribuintesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_contribuinte
-      @contribuinte = Contribuinte.find(params[:id])
-    end
+  def set_contribuinte
+    @contribuinte = Contribuinte.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def contribuinte_params
-      params.require(:contribuinte).permit(:nome)
-    end
+  def contribuinte_params
+    params.require(:contribuinte).permit(:nome)
+  end
 end

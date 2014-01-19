@@ -1,6 +1,6 @@
 <table class="tabela">
   <% @contribuintes.each do |contribuinte| %>
-      <tr class="tr-contribuinte" url='/gastos/<%= contribuinte.id %>'>
+      <tr class="tr-contribuinte" url='<%= contribuinte_path contribuinte %>'>
         <td><%= contribuinte.nome %></td>
         <td>R<%= number_to_currency(contribuinte.total) %></td>
       </tr>

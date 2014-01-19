@@ -1,9 +1,41 @@
-<p id="notice"><%= notice %></p>
+<h2 style="text-align: center">Gastos de <%= @contribuinte.nome %></h2>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @contribuinte.nome %>
-</p>
+<br>
 
-<%= link_to 'Edit', edit_contribuinte_path(@contribuinte) %> |
-<%= link_to 'Back', contribuintes_path %>
+<%= link_to 'Adicionar gasto', new_gasto_path, {:class => "adicionar-gasto"} %>
+
+<br>
+
+<table class="tabela">
+  <thead>
+  <tr>
+    <th>Descrição</th>
+    <th>Valor</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @contribuinte.gastos.each do |gasto| %>
+      <tr>
+        <td><%= gasto.descricao %></td>
+        <td>R<%= number_to_currency(gasto.valor) %></td>
+        <td><%= link_to 'Editar', edit_gasto_path(gasto) %></td>
+        <td><%= link_to 'Excluir', gasto, method: :delete, data: {confirm: 'Tem certeza?'} %></td>
+      </tr>
+  <% end %>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td><b>Total</b></td>
+    <td><b>R<%= number_to_currency(@contribuinte.total) %></b></td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  </tfoot>
+</table>
+
+
+
+

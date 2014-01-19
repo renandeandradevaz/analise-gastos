@@ -1,14 +1,6 @@
 class GastosController < ApplicationController
   before_action :set_gasto, only: [:edit, :update, :destroy]
 
-  def show
-
-    @contribuinte = Contribuinte.find(params[:id])
-    session[:contribuinte_id] = @contribuinte.id
-    @gastos = Gasto.where(:contribuinte => @contribuinte)
-
-  end
-
   def new
     @gasto = Gasto.new
   end
@@ -22,7 +14,7 @@ class GastosController < ApplicationController
 
     @gasto.save
 
-    redirect_to "/gastos/#{@gasto.contribuinte.id}"
+    redirect_to contribuinte_path @gasto.contribuinte
 
   end
 
@@ -30,12 +22,12 @@ class GastosController < ApplicationController
 
     @gasto.update(gasto_params)
 
-    redirect_to "/gastos/#{@gasto.contribuinte.id}"
+    redirect_to contribuinte_path @gasto.contribuinte
   end
 
   def destroy
     @gasto.destroy
-    redirect_to "/gastos/#{@gasto.contribuinte.id}"
+    redirect_to contribuinte_path @gasto.contribuinte
   end
 
   private
